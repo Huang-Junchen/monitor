@@ -14,7 +14,8 @@ HOST = config['host']
 PORT = config['port']
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+app.config['DEBUG'] = True
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # 配置日志
 logging.basicConfig(filename='central_monitor.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
